@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<meta name="google-signin-client_id" content="999462339983-k843shscsv5nvque25b6j6dfb817tfcg.apps.googleusercontent.com">
+		<script>
+			  function onSignIn(googleUser) {
+			  var profile = googleUser.getBasicProfile();
+			  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+			  console.log('Name: ' + profile.getName());
+			  console.log('Image URL: ' + profile.getImageUrl());
+			  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+			}
+		</script>
+  
+		<script>
+		  window.fbAsyncInit = function() {
+			FB.init({
+			  appId      : 237487970338311,
+			  cookie     : true,
+			  xfbml      : true,
+			  version    : 'v3.0'
+			});
+			  
+			FB.AppEvents.logPageView();   
+			  
+		  };
+
+		  (function(d, s, id){
+			 var js, fjs = d.getElementsByTagName(s)[0];
+			 if (d.getElementById(id)) {return;}
+			 js = d.createElement(s); js.id = id;
+			 js.src = "https://connect.facebook.net/en_US/sdk.js";
+			 fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
+		</script>
+
+	</head>
+
+	<body>
+		<script>
+		  window.fbAsyncInit = function() {
+			FB.init({
+			  appId            : 237487970338311,
+			  autoLogAppEvents : true,
+			  xfbml            : true,
+			  version          : 'v3.0'
+			});
+		  };
+
+		  (function(d, s, id){
+			 var js, fjs = d.getElementsByTagName(s)[0];
+			 if (d.getElementById(id)) {return;}
+			 js = d.createElement(s); js.id = id;
+			 js.src = "https://connect.facebook.net/en_US/sdk.js";
+			 fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
+		</script>
+		
+		<form action="action_page.php">
+
+			 <div class="container">
+				<label for="uname"><b>Username</b></label>
+				<input type="text" placeholder="Enter Username" name="uname" required>
+				
+				<label for="psw"><b>Password</b></label>
+				<input type="password" placeholder="Enter Password" name="psw" required>
+
+				<button type="submit">Login</button>
+				<label>
+				  <input type="checkbox" checked="checked" name="remember"> Remember me
+				</label>
+			 </div>
+			 
+			<div class="g-signin2" data-onsuccess="onSignIn">
+			</div>
+  
+  
+			<div class="fb-login-button" data-max-rows="1" 
+			data-size="large" data-button-type="continue_with" data-show-faces="false" 
+			data-auto-logout-link="false" data-use-continue-as="false">
+			</div>
+
+  
+			 <div class="container" style="background-color:#f1f1f1">
+				<button type="button" class="cancelbtn">Cancel</button>
+				<span class="psw">Forgot <a href="#">password?</a></span>
+			 </div>
+		</form>
+	</body>
+</html>
